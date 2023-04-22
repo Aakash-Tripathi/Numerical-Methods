@@ -7,9 +7,9 @@ def euler_integration(func, y0, t, beta, gamma, alpha, n):
     for i in range(1, len(t)):
         dt = t[i] - t[i - 1]
         if alpha is None:
-            y[i] = y[i - 1] + ((func(y[i - 1], t[i - 1], beta, gamma, None, n))) * dt
+            y[i] = y[i - 1] + func(y[i - 1], t[i - 1], beta, gamma, None, n) * dt
         else:
-            y[i] = y[i - 1] + (func(y[i - 1], t[i - 1], beta, gamma, alpha, n)) * dt
+            y[i] = y[i - 1] + func(y[i - 1], t[i - 1], beta, gamma, alpha, n) * dt
     return y
 
 
