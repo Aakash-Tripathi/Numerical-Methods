@@ -14,9 +14,13 @@ def update_plot(
 
     plt.style.use("dark_background")
     fig, ax = plt.subplots(figsize=(8, 4))
-    labels = ["Susceptible", "Exposed", "Infected", "Recovered"]
-    for i, label in enumerate(labels[: len(y0)]):
-        ax.plot(t, y[:, i], label=label)
+
+    if model_func == sir_model:
+        labels = ["Susceptible", "Infected", "Recovered"]
+    else:
+        labels = ["Susceptible", "Exposed", "Infected", "Recovered"]
+    # for i, label in enumerate(labels[: len(y0)]):
+    ax.plot(t, y[:, i], label=labels)
     ax.set_xlabel("Time")
     ax.set_ylabel("Number of Individuals")
     ax.set_title("Model Simulation")
