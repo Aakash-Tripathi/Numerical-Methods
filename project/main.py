@@ -19,8 +19,8 @@ def update_plot(
         labels = ["Susceptible", "Infected", "Recovered"]
     else:
         labels = ["Susceptible", "Exposed", "Infected", "Recovered"]
-    # for i, label in enumerate(labels[: len(y0)]):
-    ax.plot(t, y[:, i], label=labels)
+    for i, label in enumerate(labels[: len(y0)]):
+        ax.plot(t, y[:, i], label=label)
     ax.set_xlabel("Time")
     ax.set_ylabel("Number of Individuals")
     ax.set_title("Model Simulation")
